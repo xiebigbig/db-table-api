@@ -1,0 +1,18 @@
+{
+  "Debug": true,
+  "ListenPort": "8795",
+  "Driver": "mysql",
+  "DSN": "root:root@tcp(192.167.1.6:3307)/umami",
+  "TablePrefix": "",
+  "FieldNameFormat": "original",
+  "DefaultPrimaryKeyName": "id",
+  "BooleanFields": {
+    "_": [
+        ]
+  },
+  "IgnoreFields": {
+    "_": [
+      "password"
+    ]
+  }
+}
