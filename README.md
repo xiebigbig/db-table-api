@@ -1,5 +1,7 @@
 # db-table-api
-    轻松管理数据库（支持 mysql, postgreSQL, sqlite3, mssql），支持删除，新增，修改，分页查询，条件匹配查询。配合web端，实现数据管理excel报表展示、新增参数实现关联表查询
+    轻松管理数据库（支持 mysql, postgreSQL, sqlite3, mssql），支持删除，新增，修改，分页查询，条件匹配查询
+    
+    配合web端，实现数据管理excel报表展示、新增参数实现关联表查询
 
 # 配置
 ## 配置参数示例
