@@ -19,6 +19,8 @@ import (
 	"crypto/sha1"
 	"github.com/go-ozzo/ozzo-routing/cors"
 	"errors"
+	
+	"github.com/go-ozzo/ozzo-routing/file"
 )
 
 var (
@@ -210,7 +212,7 @@ func main() {
 		slash.Remover(http.StatusMovedPermanently),
 		fault.Recovery(log.Printf),
 	)
-
+	
 	api := router.Group("/api")
 	api.Use(
 		content.TypeNegotiator(content.JSON),
@@ -626,11 +628,18 @@ func main() {
 
 	})
 
+    router.Get("/", file.Content("web/index.html"))
+// serve files under the "ui" subdirectory
+	router.Get("/*", file.Server(file.PathMap{
+		"/": "/web/",
+	}))
+	
 	http.Handle("/", router)
 	addr := cfg.ListenPort
 	if len(addr) == 0 {
 		addr = "8080"
 	}
+	fmt.Println("Listen :", addr)
 	err := http.ListenAndServe(":"+addr, nil)
 	if err != nil {
 		log.Println(err)
